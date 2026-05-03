@@ -1,0 +1,63 @@
+{
+  "name": "r6-loader",
+  "version": "1.2.0",
+  "description": "R6 Loader - Professional License Management System",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-win": "electron-builder --win",
+    "build-all": "electron-builder --win --x64 --ia32",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "r6-loader",
+    "license-manager",
+    "r6",
+    "electron",
+    "desktop",
+    "auto-update"
+  ],
+  "author": "R6 Systems",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "build": {
+    "appId": "com.r6.loader",
+    "productName": "R6 Loader",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker",
+      "publisherName": "R6 Systems"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "R6 Loader"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "r6-systems",
+      "repo": "r6-loader"
+    }
+  }
+}
